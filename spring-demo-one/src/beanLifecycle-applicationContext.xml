@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+		
+    <!-- Define your beans here -->
+	<bean id="trackCoach"
+		class="com.luv2code.springdemo.TrackCoach"
+		scope="singleton"
+		init-method="doMyStartUpStuff"
+		destroy-method="doMyDestroyStuff">
+		<constructor-arg ref="randomFortuneService" />
+	</bean>
+	
+	<bean id="baseballCoach"
+		class="com.luv2code.springdemo.BaseballCoach">
+		<!-- set up constructor injection -->
+		<constructor-arg ref="happyFortuneService" />
+	</bean>
+	
+	<bean id="rugbyCoach"
+		class="com.luv2code.springdemo.RugbyCoach">
+		<constructor-arg ref="downFortuneService"/>
+	</bean>
+	
+	
+	<bean id="happyFortuneService"
+		class="com.luv2code.springdemo.HappyFortuneService">
+	</bean>
+	
+	<bean id="energeticFortuneService"
+		class="com.luv2code.springdemo.EnergeticFortuneService">
+	</bean>
+	
+	<bean id="downFortuneService"
+		class="com.luv2code.springdemo.DownFortuneService">
+	</bean>
+	
+	<bean id="randomFortuneService"
+		class="com.luv2code.springdemo.RandomFortuneService">
+	</bean>
+	
+	
+</beans>
+
+
+
+
+
